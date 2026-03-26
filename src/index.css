@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ────────────────────────────────────────────
+   ROOT & RESETS
+──────────────────────────────────────────── */
+:root {
+  --bg-primary:   #0B0B0D;
+  --bg-secondary: #121214;
+  --bg-section:   #161618;
+  --green-em:     #22C55E;
+  --green-deep:   #052E16;
+  --pink:         #FF9F1C;
+  --flame:        #FF9F1C;
+  --red-deep:     #8B0000;
+  --text-primary: #EDEDED;
+  --text-secondary:#B3B3B3;
+  --text-muted:   #9CA3AF;
+  --glass:        rgba(11, 11, 13, 0.7);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { overflow-x: hidden; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ────────────────────────────────────────────
+   SCROLLBAR
+──────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb  { background: var(--green-em); border-radius: 2px; }
+
+/* ────────────────────────────────────────────
+   CURSOR
+──────────────────────────────────────────── */
+.cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--green-em);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, background 0.2s, width 0.2s, height 0.2s;
+  box-shadow: 0 0 15px rgba(252,211,77,0.6);
+}
+.cursor.hovered {
+  width: 28px; height: 28px;
+  background: var(--pink);
+  box-shadow: 0 0 20px rgba(249,115,22,0.5);
+}
+.cursor-trail {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(252,211,77,0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.28s ease;
+}
+
+/* ────────────────────────────────────────────
+   SELECTION
+──────────────────────────────────────────── */
+::selection { background: rgba(252,211,77,0.3); color: #fff; }
+
+/* ────────────────────────────────────────────
+   UTILITY CLASSES
+──────────────────────────────────────────── */
+@layer components {
+  /* Gradient text */
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(180deg, #EDEDED 10%, #22C55E);
+  }
+  .text-gradient-gp {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(180deg, #EDEDED 10%, #22C55E);
+  }
+  .text-glow-green {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #22C55E, #16A34A);
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.25));
+  }
+  .text-metallic {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to bottom, #FFFFFF 0%, #B3B3B3 100%);
+  }
+  .text-gradient-pink {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #FF9F1C, #FFB147);
+  }
+
+  /* Section label */
+  .section-label {
+    @apply inline-block text-green-em font-bold tracking-[5px] uppercase text-[0.65rem] mb-3;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply font-bebas text-[clamp(2.5rem,5vw,4rem)] tracking-[3px] leading-none;
+  }
+
+  /* Divider */
+  .section-divider {
+    @apply w-14 h-[2px] mx-auto mt-4;
+    background: linear-gradient(90deg, #22C55E, #FF9F1C);
+  }
+
+  /* Glow border card */
+  .card-base {
+    @apply bg-bg-section border border-white/[0.07] rounded-sm transition-all duration-300;
+  }
+
+  /* Premium textured card for non-project sections */
+  .card-premium {
+    @apply bg-bg-section border border-white/[0.07] rounded-sm transition-all duration-300 relative overflow-hidden;
+    background: 
+      radial-gradient(circle at top left, rgba(34, 197, 94, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at bottom right, rgba(255, 159, 28, 0.03) 0%, transparent 60%),
+      var(--bg-section);
+  }
+  .card-premium::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    z-index: 0;
+    mix-blend-mode: overlay;
+  }
+  .card-premium > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-green-em/40 hover:shadow-card-hover;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-3 bg-green-em text-black font-bold text-[0.75rem]
+           tracking-[2px] uppercase rounded-sm transition-all duration-300
+           hover:bg-white hover:-translate-y-0.5 hover:shadow-glow-green;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-bold
+           text-[0.75rem] tracking-[2px] uppercase rounded-sm transition-all duration-300
+           hover:border-pink-acc hover:text-pink-acc hover:-translate-y-0.5 hover:shadow-glow-pink;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-8 py-3 border border-white/10 text-gray-400 font-bold
+           text-[0.75rem] tracking-[2px] uppercase rounded-sm transition-all duration-300
+           hover:border-flame hover:text-flame hover:-translate-y-0.5 hover:shadow-glow-flame;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply relative text-gray-400 text-[0.72rem] font-semibold tracking-[2px] uppercase
+           transition-colors duration-300 hover:text-green-em;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-green-em transition-[width] duration-300;
+  }
+  .nav-link:hover::after { @apply w-full; }
+  .nav-link.active { @apply text-green-em; }
+  .nav-link.active::after { @apply w-full; }
+
+  /* Skill tag */
+  .skill-tag {
+    @apply px-3 py-1.5 border border-white/10 text-gray-400 text-[0.74rem] font-medium
+           rounded-sm cursor-default transition-all duration-200
+           hover:border-green-em hover:text-green-em;
+  }
+  .skill-tag-lang { @apply hover:border-pink-acc hover:text-pink-acc; }
+  .skill-tag-tool { @apply hover:border-flame hover:text-flame; }
+}
+
+/* ────────────────────────────────────────────
+   GRID BACKGROUND TEXTURE
+──────────────────────────────────────────── */
+.grid-texture {
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(252,211,77,0.03) 80px, rgba(252,211,77,0.03) 81px),
+    repeating-linear-gradient(0deg,  transparent, transparent 80px, rgba(252,211,77,0.03) 80px, rgba(252,211,77,0.03) 81px);
+}
+
+/* ────────────────────────────────────────────
+   SEIGAIHA PATTERN (JAPANESE WAVES)
+──────────────────────────────────────────── */
+.seigaiha-texture {
+  background-color: transparent;
+  background-image: 
+    radial-gradient(circle at 100% 150%, transparent 24%, var(--green-em) 25%, var(--green-em) 28%, transparent 29%, transparent 36%, var(--green-em) 36%, var(--green-em) 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0    150%, transparent 24%, var(--green-em) 25%, var(--green-em) 28%, transparent 29%, transparent 36%, var(--green-em) 36%, var(--green-em) 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50%  100%, var(--green-em) 10%, transparent 11%, transparent 23%, var(--green-em) 24%, var(--green-em) 30%, transparent 31%, transparent 43%, var(--green-em) 44%, var(--green-em) 50%, transparent 51%, transparent 63%, var(--green-em) 64%, var(--green-em) 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, var(--green-em) 5%, transparent 6%, transparent 15%, var(--green-em) 16%, var(--green-em) 20%, transparent 21%, transparent 30%, var(--green-em) 31%, var(--green-em) 35%, transparent 36%, transparent 45%, var(--green-em) 46%, var(--green-em) 49%, transparent 50%, transparent),
+    radial-gradient(circle at 0    50%, var(--green-em) 5%, transparent 6%, transparent 15%, var(--green-em) 16%, var(--green-em) 20%, transparent 21%, transparent 30%, var(--green-em) 31%, var(--green-em) 35%, transparent 36%, transparent 45%, var(--green-em) 46%, var(--green-em) 49%, transparent 50%, transparent);
+  background-size: 60px 30px;
+  /* Removed fixed opacity to control entirely from component */
+}
+
+/* ────────────────────────────────────────────
+   NAVBAR GLASSMORPHISM
+──────────────────────────────────────────── */
+.nav-scrolled {
+  background: rgba(11,11,11,0.88) !important;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(252,211,77,0.18);
+}
+
+/* ────────────────────────────────────────────
+   HERO SWORD DECORATION
+──────────────────────────────────────────── */
+.sword-line {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #22C55E, #FF9F1C, transparent);
+}
+.sword-line::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, #22C55E, transparent);
+}
+
+/* ────────────────────────────────────────────
+   PROJECT CARD PREVIEW GRADIENTS
+──────────────────────────────────────────── */
+.preview-1 { background: linear-gradient(135deg, #78350F, #2d1808); }
+.preview-2 { background: linear-gradient(135deg, #1a0505, #2d0808); }
+.preview-3 { background: linear-gradient(135deg, #065F46, #022C22); }
+.preview-4 { background: linear-gradient(135deg, #1a1005, #2d1e08); }
+
+/* ────────────────────────────────────────────
+   TIMELINE LINE
+──────────────────────────────────────────── */
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 21px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, #22C55E, transparent);
+}
+
+/* ────────────────────────────────────────────
+   SKILL CARD TOP BORDER ANIMATION
+──────────────────────────────────────────── */
+.skill-card-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #22C55E, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.skill-card-inner:hover::before { transform: scaleX(1); }
+
+/* ────────────────────────────────────────────
+   SHIMMER LOADING (badges)
+──────────────────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(90deg, #22C55E 25%, #86EFAC 50%, #22C55E 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ────────────────────────────────────────────
+   MOBILE NAV OVERLAY
+──────────────────────────────────────────── */
+.mobile-nav-open {
+  transform: translateX(0) !important;
+}
+.nav-scrolled {
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
+}
+
+/* Floating Particles */
+.particle {
+  position: absolute;
+  background: var(--green-em);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+@keyframes float-particle {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  20% { opacity: 0.4; }
+  80% { opacity: 0.4; }
+  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
