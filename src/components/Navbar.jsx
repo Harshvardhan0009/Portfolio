@@ -75,7 +75,7 @@ export default function Navbar() {
 
         {/* Resume CTA */}
         <motion.a
-          href="/resume.pdf"
+          href={`${import.meta.env.BASE_URL}resume.pdf`}
           target="_blank"
           rel="noreferrer"
           initial={{ opacity: 0 }}
@@ -135,7 +135,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               target="_blank"
               className="btn-primary mt-4"
             >

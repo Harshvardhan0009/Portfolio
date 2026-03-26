@@ -42,7 +42,7 @@ export default function About() {
                          shadow-glow-green overflow-hidden"
             >
               <img
-                src="/images/about-photo.jpg"
+                src={`${import.meta.env.BASE_URL}images/about-photo.jpg`}
                 alt="Harshvardhan"
                 className="w-full h-full object-cover object-top"
               />

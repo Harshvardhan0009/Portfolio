@@ -12,7 +12,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/harshvardhan1204/",
   twitter: "",
   instagram: "https://www.instagram.com/harsh_sharmaa88/",
-  resume: "/resume.pdf",
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
   available: true,
 };
 
@@ -72,7 +72,7 @@ export const projects = [
     id: 1,
     title: "PrepSync",
     emoji: "🎯",
-    image: "/projects/virtual-meeting.jpg",
+    image: `${import.meta.env.BASE_URL}projects/virtual-meeting.jpg`,
     preview: "preview-1",
     description:
       "A real-time interview prep platform featuring a collaborative shared code editor, whiteboard, chat, and video calls. Integrated AI-based mock interviews with automated feedback, scoring, and an analytics dashboard.",
@@ -88,7 +88,7 @@ export const projects = [
     id: 2,
     title: "TechVaultGlobal",
     emoji: "🔐",
-    image: "/projects/techvault.jpg",
+    image: `${import.meta.env.BASE_URL}projects/techvault.jpg`,
     preview: "preview-2",
     description:
       "A full-stack web application built with a responsive component-based frontend and dynamic card layouts. Implemented RESTful APIs for seamless client-server communication and deployed via Git/GitHub.",
@@ -104,7 +104,7 @@ export const projects = [
     id: 3,
     title: "AI Gardening Assistant",
     emoji: "🌱",
-    image: "/projects/gardening-ai.jpg",
+    image: `${import.meta.env.BASE_URL}projects/gardening-ai.jpg`,
     preview: "preview-3",
     description:
       "A web app providing real-time plant care guidance via an interactive chat interface. Implemented AI/NLP-driven response logic for watering, soil care, and seasonal practice recommendations.",
@@ -151,7 +151,7 @@ export const certifications = [
     desc: "Earned the Oracle AI Foundations Associate certification in March 2026.",
     badge: "Oracle",
     color: "flame",
-    link: "/Certifications/eCertificate.pdf",
+    link: `${import.meta.env.BASE_URL}Certifications/eCertificate.pdf`,
   },
   {
     icon: "💻",
@@ -159,7 +159,7 @@ export const certifications = [
     desc: "Certified in Data Structures and Algorithms by GeeksForGeeks in October 2025.",
     badge: "GFG",
     color: "green",
-    link: "/Certifications/gfgcertificate.pdf",
+    link: `${import.meta.env.BASE_URL}Certifications/gfgcertificate.pdf`,
   },
   {
     icon: "☕",
@@ -167,7 +167,7 @@ export const certifications = [
     desc: "Completed Java certification from NeoColab in May 2025.",
     badge: "NeoColab",
     color: "pink",
-    link: "/Certifications/JAVA.ai.pdf",
+    link: `${import.meta.env.BASE_URL}Certifications/JAVA.ai.pdf`,
   },
   {
     icon: "☁️",
@@ -175,7 +175,7 @@ export const certifications = [
     desc: "Completed Cloud Computing certification from NPTEL IIT Kharagpur in April 2025.",
     badge: "NPTEL",
     color: "green",
-    link: "/Certifications/Cloud Computing.pdf",
+    link: `${import.meta.env.BASE_URL}Certifications/Cloud Computing.pdf`,
   },
 ];
 

@@ -30,7 +30,7 @@ function CertCard({ item, index }) {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img 
-          src="/images/ -3.avif" 
+          src={`${import.meta.env.BASE_URL}images/ -3.avif`} 
           alt="Certifications Background" 
           className="w-full h-full object-cover opacity-40 group-hover:opacity-70 transition-all duration-700 group-hover:scale-105"
         />
