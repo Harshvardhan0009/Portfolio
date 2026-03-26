@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { Link } from 'react-scroll'
-import { FaGithub, FaLinkedinIn, FaTwitter, FaEnvelope, FaDownload, FaPaperPlane, FaCode } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram, FaEnvelope, FaDownload, FaPaperPlane, FaCode } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 
 const fadeUp = (delay = 0) => ({
@@ -96,7 +96,7 @@ export default function Hero() {
           {[
             { icon: <FaLinkedinIn />, href: personalInfo.linkedin, label: 'LinkedIn' },
             { icon: <FaGithub />, href: personalInfo.github, label: 'GitHub' },
-            { icon: <FaTwitter />, href: personalInfo.twitter, label: 'Twitter' },
+            { icon: <FaInstagram />, href: personalInfo.instagram, label: 'Instagram' },
             { icon: <FaEnvelope />, href: `mailto:${personalInfo.email}`, label: 'Email' },
           ].map(s => (
             <a

@@ -30,23 +30,7 @@ function SkillCard({ card, index }) {
                    hover:-translate-y-1 hover:border-green-em/30 hover:shadow-[0_8px_30px_rgba(34,197,94,0.15)] transition-all duration-500"
         style={{ borderColor: 'rgba(255,255,255,0.07)' }}
       >
-        {/* Beautiful Glassmorphism & Image Effect */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Subtle Glow Orbs */}
-          <div className="absolute -top-10 -right-10 w-32 h-32 bg-green-em/20 rounded-full blur-[40px] group-hover:bg-green-em/40 transition-colors duration-700 z-0"></div>
-          <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-flame/20 rounded-full blur-[40px] group-hover:bg-flame/40 transition-colors duration-700 z-0"></div>
-          
-          {/* Dynamic Image Layer */}
-          <img 
-            src="/images/Code Aesthetic || Vscode themes || Dracula Theme Soft || Coder Aesthetic.avif" 
-            alt="Skills Background" 
-            className="absolute inset-0 w-full h-full object-cover opacity-50 blur-[3px] group-hover:blur-0 group-hover:opacity-85 transition-all duration-700 group-hover:scale-110 z-10"
-          />
-          
-          {/* Elegant Dark Gradient overlay for reading */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B0B0D]/95 via-transparent to-[#0B0B0D]/95 group-hover:from-black/60 group-hover:via-transparent group-hover:to-black/60 transition-all duration-700 z-20"></div>
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-20"></div>
-        </div>
+
 
         <div className="relative z-30">
           <div className="flex items-center gap-2 mb-2">

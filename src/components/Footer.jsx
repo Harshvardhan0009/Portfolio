@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedinIn, FaTwitter, FaHeart } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaInstagram, FaHeart } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 import { Link } from 'react-scroll'
 
@@ -35,9 +35,9 @@ export default function Footer() {
           {/* Socials */}
           <div className="flex gap-2.5">
             {[
-              { icon: <FaGithub />,     href: personalInfo.github   },
-              { icon: <FaLinkedinIn />, href: personalInfo.linkedin },
-              { icon: <FaTwitter />,    href: personalInfo.twitter  },
+              { icon: <FaGithub />,     href: personalInfo.github    },
+              { icon: <FaLinkedinIn />, href: personalInfo.linkedin  },
+              { icon: <FaInstagram />,  href: personalInfo.instagram },
             ].map((s, i) => (
               <a
                 key={i}

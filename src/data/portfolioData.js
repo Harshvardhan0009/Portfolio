@@ -11,6 +11,7 @@ export const personalInfo = {
   github: "https://github.com/Harshvardhan0009",
   linkedin: "https://www.linkedin.com/in/harshvardhan1204/",
   twitter: "",
+  instagram: "https://www.instagram.com/harsh_sharmaa88/",
   resume: "/resume.pdf",
   available: true,
 };
@@ -103,7 +104,7 @@ export const projects = [
     id: 3,
     title: "AI Gardening Assistant",
     emoji: "🌱",
-    image: "/projects/robot-gardener.jpg",
+    image: "/projects/gardening-ai.jpg",
     preview: "preview-3",
     description:
       "A web app providing real-time plant care guidance via an interactive chat interface. Implemented AI/NLP-driven response logic for watering, soil care, and seasonal practice recommendations.",

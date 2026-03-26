@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import SectionHeader from './SectionHeader'
 import { aboutText, stats, personalInfo } from '../data/portfolioData'
-import { FaMapMarkerAlt, FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaEnvelope, FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 
 function AnimatedCard({ children, delay = 0, className = '' }) {
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true })
@@ -89,6 +89,8 @@ export default function About() {
               className="text-gray-500 hover:text-green-em transition-colors text-lg"><FaGithub /></a>
             <a href={personalInfo.linkedin} target="_blank" rel="noreferrer"
               className="text-gray-500 hover:text-green-em transition-colors text-lg"><FaLinkedinIn /></a>
+            <a href={personalInfo.instagram} target="_blank" rel="noreferrer"
+              className="text-gray-500 hover:text-green-em transition-colors text-lg"><FaInstagram /></a>
             <a href={`mailto:${personalInfo.email}`}
               className="text-gray-500 hover:text-green-em transition-colors text-lg"><FaEnvelope /></a>
           </div>

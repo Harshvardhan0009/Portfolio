@@ -46,7 +46,7 @@ export default function Contact() {
     { icon: <FaGithub />,     href: personalInfo.github,   label: 'GitHub' },
     { icon: <FaLinkedinIn />, href: personalInfo.linkedin, label: 'LinkedIn' },
     { icon: <FaTwitter />,    href: personalInfo.twitter,  label: 'Twitter' },
-    { icon: <FaInstagram />,  href: '#',                   label: 'Instagram' },
+    { icon: <FaInstagram />,  href: personalInfo.instagram, label: 'Instagram' },
   ]
 
   return (
